@@ -1,0 +1,18 @@
+2023-04-27 22:15:33,087, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443, urllib3.connectionpool
+2023-04-27 22:15:33,390, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1682615733 HTTP/1.1" 200 42, urllib3.connectionpool
+2023-04-27 22:15:33,393, DEBUG, Entering: send_message, telegram.bot
+2023-04-27 22:15:33,738, DEBUG, {'channel_chat_created': False, 'date': 1682615733, 'text': 'Сбой в работе программы: list index out of range', 'caption_entities': [], 'delete_chat_photo': False, 'chat': {'type': 'private', 'id': 5509882065, 'first_name': 'Евгений'}, 'photo': [], 'group_chat_created': False, 'supergroup_chat_created': False, 'new_chat_photo': [], 'message_id': 288, 'entities': [], 'new_chat_members': [], 'from': {'first_name': 'КошакБот', 'id': 5817883408, 'username': 'check080bot', 'is_bot': True}}, telegram.bot
+2023-04-27 22:15:33,767, DEBUG, Exiting: send_message, telegram.bot
+2023-04-27 22:15:33,767, DEBUG, Удачная отправка сообщения: "Сбой в работе программы: list index out of range", root
+2023-04-27 22:16:23,634, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443, urllib3.connectionpool
+2023-04-27 22:16:23,916, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1682615783 HTTP/1.1" 200 42, urllib3.connectionpool
+2023-04-27 22:16:23,918, DEBUG, Entering: send_message, telegram.bot
+2023-04-27 22:16:24,293, DEBUG, {'group_chat_created': False, 'message_id': 289, 'text': 'Сбой в работе программы: Никаких обновлений в статусе нет', 'channel_chat_created': False, 'supergroup_chat_created': False, 'delete_chat_photo': False, 'photo': [], 'new_chat_photo': [], 'entities': [], 'date': 1682615784, 'new_chat_members': [], 'caption_entities': [], 'chat': {'type': 'private', 'first_name': 'Евгений', 'id': 5509882065}, 'from': {'username': 'check080bot', 'id': 5817883408, 'is_bot': True, 'first_name': 'КошакБот'}}, telegram.bot
+2023-04-27 22:16:24,294, DEBUG, Exiting: send_message, telegram.bot
+2023-04-27 22:16:24,294, DEBUG, Удачная отправка сообщения: "Сбой в работе программы: Никаких обновлений в статусе нет", root
+2023-04-27 22:19:55,126, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443, urllib3.connectionpool
+2023-04-27 22:19:55,412, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1682615995 HTTP/1.1" 200 42, urllib3.connectionpool
+2023-04-27 22:19:55,415, DEBUG, Entering: send_message, telegram.bot
+2023-04-27 22:19:55,739, DEBUG, {'entities': [], 'message_id': 290, 'group_chat_created': False, 'supergroup_chat_created': False, 'new_chat_members': [], 'channel_chat_created': False, 'date': 1682615995, 'chat': {'first_name': 'Евгений', 'type': 'private', 'id': 5509882065}, 'new_chat_photo': [], 'text': 'Сбой в работе программы: list index out of range', 'caption_entities': [], 'delete_chat_photo': False, 'photo': [], 'from': {'id': 5817883408, 'username': 'check080bot', 'first_name': 'КошакБот', 'is_bot': True}}, telegram.bot
+2023-04-27 22:19:55,740, DEBUG, Exiting: send_message, telegram.bot
+2023-04-27 22:19:55,740, DEBUG, Удачная отправка сообщения: "Сбой в работе программы: list index out of range", root
