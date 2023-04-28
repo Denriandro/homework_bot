@@ -59,8 +59,7 @@ def get_api_answer(timestamp):
                 f'статус: {response.status_code}'
                 f'причина: {response.reason}'
                 f'текст: {response.text}'
-                f'эндпоинт (url): {response.url}'
-                f'headers (авторизация): {response.headers}')
+                f'эндпоинт (url): {response.url}')
         return response.json()
     except requests.RequestException as error:
         logging.error(f'Беда с запросом {error}')
@@ -98,7 +97,7 @@ def check_update(prev_value, new_value):
     """Проверка обновления переменной."""
     if new_value != prev_value:
         prev_value = new_value
-        return prev_value
+    return prev_value
 
 
 def main():
