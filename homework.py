@@ -58,7 +58,9 @@ def get_api_answer(timestamp):
                 'Не удалось получить ответ API, '
                 f'статус: {response.status_code}'
                 f'причина: {response.reason}'
-                f'текст: {response.text}')
+                f'текст: {response.text}'
+                f'эндпоинт (url): {response.url}'
+                f'headers (авторизация): {response.headers}')
         return response.json()
     except requests.RequestException as error:
         logging.error(f'Беда с запросом {error}')
@@ -79,25 +81,32 @@ def check_response(response):
 
 def parse_status(homework):
     """Извлекает из ответа API статус и имя домашки."""
-    if homework == []:
+    if not homework:
         raise exceptions.EmptyData('Никаких обновлений в статусе нет')
     if 'homework_name' not in homework:
         raise KeyError('В ответе отсутствует ключ homework_name')
     homework_name = homework['homework_name']
     verdict = homework['status']
-    if verdict in HOMEWORK_VERDICTS:
-        verdict = HOMEWORK_VERDICTS[verdict]
-    else:
+    verdict = HOMEWORK_VERDICTS.get(verdict)
+    if not verdict:
         logging.error('Неожиданный статус в ответе API')
         raise ValueError(f'Неизвестный статус работы: {verdict}')
     return f'Изменился статус проверки работы "{homework_name}". {verdict}'
 
 
+def check_update(prev_value, new_value):
+    """Проверка обновления переменной."""
+    if new_value != prev_value:
+        prev_value = new_value
+        return prev_value
+
+
 def main():
     """Основная логика работы бота."""
     if not check_tokens():
-        logging.critical('Отсутствует необходимое кол-во'
-                         ' переменных окружения')
+        logging.critical(
+            'Отсутствует необходимое кол-во переменных окружения'
+        )
         sys.exit('Отсутствуют переменные окружения')
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
     timestamp = int(time.time())
@@ -108,8 +117,7 @@ def main():
             response = get_api_answer(timestamp)
             homework = check_response(response)
             message = parse_status(homework)
-            if message != prev_status:
-                prev_status = message
+            if check_update(prev_status, message):
                 send_message(bot, message)
             else:
                 logging.debug('Отсутствие в ответе новых статусов')
@@ -118,8 +126,7 @@ def main():
             logging.error(message)
         except Exception as error:
             message = f'Сбой в работе программы: {error}'
-            if message != prev_message:
-                prev_message = message
+            if check_update(prev_message, message):
                 send_message(bot, message)
         finally:
             time.sleep(RETRY_PERIOD)
