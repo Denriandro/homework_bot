@@ -1,3 +1,2 @@
 # homework_bot
-python telegram bot
-logging
+python telegram bot, logging
